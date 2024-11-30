@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rotujúci Efekt s Pôvodnou Veľkosťou Obrázkov</title>
+    <link rel="stylesheet" href="skuska.css">
+</head>
+<body>
+     
+                <!-- hambac -->
+    <header class="header">
+            <!-- Statické pozadie -->
+        
+        <div class="hamburger" id="hamburger">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+        <nav class="menu" id="menu">
+            <ul>
+                <li><a href="#" data-scroll="0">Home</a></li>
+                <li><a href="#" data-scroll="1400">Links</a></li>
+                <li><a href="#" data-scroll="2200">Artworks</a></li>
+                <li><a href="#" data-scroll="11111">Animations</a></li>
+            </ul>
+        </nav>
+        
+                
+               
+        <h2>EXPLORE</h2>
+    </header>
+    
+
+    <div class="static-background"></div>
+
+
+    <!-- Sekcia s rotujúcimi obrázkami -->
+    <section id="rotate-section" class="rotate-section">
+        
+        <img src="paralax img/Asset 11rollermid.png" class="midground" alt="Stredná vrstva">
+        <a href="" onclick="scrollToPosition(1400); return false;">
+            <img src="paralax img/Asset 10rollermini.png" class="foreground" alt="Popredie">
+        </a>
+    </section>
+
+    <section id="sidebars">
+            <!-- Vysúvací pravy sidebar -->
+        <div class="sidebar">
+            <div class="sidebar-content">
+                <a href="https://www.instagram.com/q.u.a.n.t.r.y.x/" target="_blank">
+                    <img src="1x/Asset 4ig.png" alt="Link Icon" class="icon" data-trigger="500">
+                </a>
+            </div>
+        </div>
+        <!-- Vysúvací pravy sidebar 2-->
+        <div class="sidebar sidebar-2">
+            <div class="sidebar-content">
+                <a href="https://open.spotify.com/artist/4dTM7eACv4YAOwPx626jE7?si=luofFSVrSoqhMTTSWlz8ow" target="_blank">
+                    <img src="1x/Asset 1spotify.png" alt="Link Icon" class="icon" data-trigger="700">
+                </a>
+            </div>
+        </div>
+        
+        <!-- Vysúvací pravy sidebar 3-->
+        <div class="sidebar sidebar-3">
+            <div class="sidebar-content">
+                <a href="https://soundcloud.com/quantryx" target="_blank">
+                    <img src="1x/Asset 5SoundCloud.png" alt="Link Icon" class="icon" data-trigger="900">
+                </a>
+            </div>
+        </div>
+            <!-- Vysúvací lavy sidebar 1 -->
+        <div class="sidebar sidebar-left-1">
+            <div class="sidebar-content">
+                <a href="https://www.tiktok.com/@q.u.a.n.t.r.y.x?lang=en" target="_blank">
+                    <img src="1x/Asset 3tiktok.png" alt="Left Icon 1" class="icon" data-trigger="600">
+                </a>
+            </div>
+        </div>
+        
+        <!-- Vysúvací lavy sidebar 2 -->
+        <div class="sidebar sidebar-left-2">
+            <div class="sidebar-content">
+                <a href="https://left-link-2.com" target="_blank">
+                    <img src="1x/Asset 6ytb.png" alt="Left Icon 2" class="icon" data-trigger="800">
+                </a>
+            </div>
+        </div>
+    </section>
+    
+        <!-- Sekcia Hero Section nad Footer -->
+    <section class="hero-section">
+        <div class="banner">
+            <div class="slider" style="--quantity: 8">
+                <div class="item" style="--position: 1">
+                    <img src="artworks/alchemist final on ep copy.png" alt="" data-title="Alchemist" data-link="https://open.spotify.com/album/6XKqSGKDGdKjaDsUNvghoT?si=4Q-UOD_GRCmdKvhYld5bZQ">
+                </div>
+                <div class="item" style="--position: 2">
+                    <img src="artworks/beyond matter copy.jpg" alt="" data-title="Beyond Matter" data-link="https://open.spotify.com/track/4EYXz7bNZRYc9Oz25C0ngI?si=a6d3e42afa8346e8">
+                </div>
+                <div class="item" style="--position: 3">
+                    <img src="artworks/com final jpg copy.jpg" alt="" data-title="Constuct of mind" data-link="https://open.spotify.com/track/6LFzV7O9zRUJtBc0H1gTqP?si=b6b98e60759148e6">
+                </div>
+                <div class="item" style="--position: 4">
+                    <img src="artworks/cosmic journey FINAL! copy.jpg" alt="" data-title="Cosmic Journey" data-link="https://open.spotify.com/track/31ZatoKx39n6khRes5feOL?si=696adf59b6834ae9">
+                </div>
+                <div class="item" style="--position: 5">
+                    <img src="artworks/evolve last fucking one copy.jpg" alt="" data-title="Evolve" data-link="https://open.spotify.com/track/4SeXKlXbxqNR4ONyj3siAk?si=b11f6b1e962e4729">
+                </div>
+                <div class="item" style="--position: 6">
+                    <img src="artworks/explore cover copy.jpg" alt="" data-title="Explore" data-link="https://open.spotify.com/album/2Hw4rQtAkXk4Xme0XMhrRE?si=pkK7Xg0TTEmGrlxUG3c6Uw">
+                </div>
+                <div class="item" style="--position: 7">
+                    <img src="artworks/metagalactic Quest final 3 copy.jpg" alt="" data-title="Metagalactic Quest" data-link="https://open.spotify.com/album/65DGvlBdh9Ut71DaYIjDJA?si=xmq3_z1qT8m1ugUVxMoKWw">
+                </div>
+                <div class="item" style="--position: 8">
+                    <img src="artworks/new level 1 copy.jpg" alt="" data-title="New Level" data-link="https://open.spotify.com/album/52tK7knx0QH2foR1nYghku?si=EdW6V6r2Te6Gbs3YsDlScQ">
+                </div>
+            </div>
+            
+            <div class="content">
+                <div class="author">
+                    <h2>ARTWORKS</h2>
+                    <p><b>Album / EPs / Single covers</b></p>
+                </div>
+                <div class="model"></div>
+            </div>
+        </div>
+    </section>
+            
+    <!-- Modal štruktúra pre obrázky -->
+    <div class="modal-overlay" id="modalOverlay"></div>
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <img id="modalImage" src="" alt="Artwork Image">
+            <h3 id="modalTitle">Nadpis</h3>
+            <a id="modalLink" href="#" target="_blank">Play on spotify</a>
+        </div>
+    </div>
+    
+    
+    <section class="animation">
+        <div class="video-container">
+            <p class="button-text">Do not click this</p>
+            <div class="button-wrapper">
+                
+                <img id="changeVideoBtn" src="paralax img/Asset 11rollermid.png" alt="Zmeniť video" class="rotate-btn">
+            </div>
+            <video id="videoPlayer" controls autoplay muted loop></video>
+        </div>
+    </section>
+    
+    
+    <div class="form">
+        <a href="index.html" class="podstranka">Useless link</a>
+    </div>
+
+
+    <footer>
+        <p>&copy; 2024 Quantryx</p>
+    </footer>
+
+
+
+<script src="skuska.js" ></script>
+
+
+
+    
+</body>
+</html>

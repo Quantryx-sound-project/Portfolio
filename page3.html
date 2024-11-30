@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .podstranka {
+            margin: 3rem;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #2a2a2a;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+        }
+        .form{
+            display: flex;
+            justify-content: center; /* Horizontálne centrovanie */
+            align-items: center;
+        }
+        .form-container {
+            padding: 20px;
+            border-radius: 10px;
+            width: 300px;
+            text-align: center;
+        }
+        
+        .form-container h1 {
+            margin-bottom: 20px;
+        }
+        
+        .form-container label {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        
+        .form-container input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        
+        .form-container button {
+            width: 100%;
+            padding: 10px;
+            background-color: #000000;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="form">
+        <div class="form-container">
+            <h1>Formulár</h1>
+            <form>
+                <label for="text">pošli správu</label>
+                <input type="text" id="text" name="text" placeholder="text" required>
+                <button type="submit">Odoslať</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="form">
+        <a href="skuska.html" class="podstranka">Hlavná stránka</a>
+    </div>
+    
+</body>
+</html>

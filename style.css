@@ -1,0 +1,247 @@
+@import url('https://fonts.cdnfonts.com/css/ica-rubrik-black');
+@import url('https://fonts.cdnfonts.com/css/poppins');
+
+:root {
+    --triangle-size: 9rem; /* Veľkosť vonkajšieho trojuholníka */
+    --inner-triangle-size: 6rem; /* Veľkosť vnútorného trojuholníka */
+    --logo-size: 3rem; /* Veľkosť loga */
+    --logo-top-offset: 30%; /* Vertikálna pozícia loga */
+    --logo-left-offset: 500%; /* Horizontálna pozícia loga */
+    --inner-triangle-offset-top: -9rem; /* Posun vnútorného trojuholníka */
+}
+
+/* Úvodná sekcia */
+.home {
+    font-family: 'ICA Rubrik';
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    background-color: #000;
+    position: relative;
+}
+
+/* Obsah */
+.home .content {
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    z-index: 100;
+}
+
+/* Nadpis */
+.home .content h2 {
+    
+    color: #fff;
+    text-shadow: 0 10px 20px #000;
+    font-size: 2rem;
+    text-align: center;
+    margin: 0;
+    z-index: 101;
+}
+
+/* Vonkajší trojuholník */
+.triangle-container {
+    position: relative;
+    width: 0;
+    height: 0;
+    border-left: calc(var(--triangle-size) / 2) solid transparent;
+    border-right: calc(var(--triangle-size) / 2) solid transparent;
+    border-top: var(--triangle-size) solid #fff;
+    z-index: 200;
+}
+
+/* Vnútorný trojuholník */
+.inner-triangle {
+    position: absolute;
+    top: var(--inner-triangle-offset-top);
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: calc(var(--inner-triangle-size) / 2) solid transparent;
+    border-right: calc(var(--inner-triangle-size) / 2) solid transparent;
+    border-top: var(--inner-triangle-size) solid #060606; /* Červený trojuholník */
+}
+
+/* Logo */
+.logo-img {
+    position: absolute;
+    top: var(--logo-top-offset);
+    left: var(--logo-left-offset);
+    transform: translate(-50%, -290%);
+    width: var(--logo-size);
+    height: var(--logo-size);
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+
+
+
+/*sekcia 2 hero-section*/
+.hero-section {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-image:
+        linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 1) 100%),
+        url('BG imgs/Screenshot 2024-03-31 at 13.01.25 copy.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+/*tociaca sa galerka do kruhu*/
+.banner{
+    
+    width: 100%;
+    height: 100vh;
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+}
+.banner .slider{
+    position:relative;
+    width: 10rem;
+    height: 15rem;
+    top: 10rem;
+    left: calc(50% - 100px);
+    transform-style: preserve-3d;
+    transform: perspective(1000px);
+    animation: autoRun 20s linear infinite;
+    z-index: 2;
+}
+/*toto zabezpecuje ze sa to cele toci od 0 po 360degree*/
+@keyframes autoRun{ 
+    from{
+        transform: perspective(1000px) rotateX(-20deg) rotateY(0deg);
+    }to{
+        transform: perspective(1000px) rotateX(-20deg) rotateY(360deg);
+    }
+}
+/*fotky co sa tocia*/
+.banner .slider .item{
+    position: absolute;
+    inset: 0 0 0 0;
+    transform: 
+        rotateY(calc( (var(--position) - 1) * (360 / var(--quantity)) * 1deg))
+        translateZ(25rem);
+}
+.banner .slider .item img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/*nastavenie textu pri tociacom kruhu*/
+.banner .content{
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(1400px, 100vw);
+    height: max-content;
+    padding-bottom: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1;
+}
+.banner .content h2{
+    
+    font-size: 3em;
+    line-height: 1em;
+    color: #454a69;
+    position: relative;
+   
+}
+
+.banner .content .author{
+    margin: -75rem 0 0 0;
+    padding-left: 2rem;
+    font-family: 'ICA Rubrik';
+    color: #fff;
+    text-shadow: 0 10px 20px #000;
+    z-index: 2;
+    text-align: left;
+   
+}
+
+.banner .content .model{
+    background-image: url(images+logo/Asset.png);
+    width: 100%;
+    height: 30rem;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-size: auto 25rem;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 1;
+}
+
+/*tociace sa obrazky zobrazenie pre mobil*/
+@media screen and (max-width: 767px) {
+    .banner .slider{
+        width: 111px;
+        height: 270px;
+        left: calc(50% - 50px);
+    }
+    .banner .slider .item{
+        transform: 
+            rotateY(calc( (var(--position) - 1) * (360 / var(--quantity)) * 1deg))
+            translateZ(222px);
+    }
+    .banner .content h1{
+        font-size: 5em;
+    }
+}
+
+
+/*paralax shit*/
+
+.parallax-container {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.parallax-image {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50%;
+    height: auto;
+    object-fit: contain;
+    z-index: 1;
+    will-change: transform;
+}
+
+
+
+.form{
+    display: flex;
+    justify-content: center; /* Horizontálne centrovanie */
+    align-items: center;
+}
+.podstranka {
+    margin: 3rem;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #2a2a2a;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+}

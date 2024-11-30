@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background-color: #030303;
+        }
+        
+        
+    </style>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <section class="home">
+        <div class="content">
+            <div class="triangle-container">
+                <div class="inner-triangle"></div>
+                
+            </div>
+            <img src="images+logo/docasnelogo.png" alt="Logo" class="logo-img">
+            <h2>EXPLORE</h2>
+        </div>
+
+        <div class="form">
+            <a href="page3.html" class="podstranka">formulár</a>
+        </div>
+        
+    </section>
+    <section class="hero-section">
+        <div class="banner">
+            <div class="slider" style="--quantity: 8">
+                <div class="item" style="--position: 1"><img src="artworks/alchemist final on ep copy.png" alt=""></div>
+                <div class="item" style="--position: 2"><img src="artworks/beyond matter copy.jpg" alt=""></div>
+                <div class="item" style="--position: 3"><img src="artworks/com final jpg copy.jpg" alt=""></div>
+                <div class="item" style="--position: 4"><img src="artworks/cosmic journey FINAL! copy.jpg" alt=""></div>
+                <div class="item" style="--position: 5"><img src="artworks/evolve last fucking one copy.jpg" alt=""></div>
+                <div class="item" style="--position: 6"><img src="artworks/explore cover copy.jpg" alt=""></div>
+                <div class="item" style="--position: 7"><img src="artworks/metagalactic Quest final 3 copy.jpg" alt=""></div>
+                <div class="item" style="--position: 8"><img src="artworks/new level 1 copy.jpg" alt=""></div>
+            </div>
+            <div class="content">
+                <div class="author">
+                    <h2>ARTWORKS</h2>
+                    <p><b>Album / EPs / Single covers</b></p>
+                </div>
+                <div class="model"></div>
+            </div>
+        </div>
+    </section>
+    
+    
+   
+
+    <div class="parallax-container">
+        <div class="parallax-bg"></div>
+        <img src="paralax img/fredoph copy.jpg" alt="Transparentná fotka" class="parallax-image">
+    </div>
+
+    <div class="content">
+        <h1>Parallax efekt s transparentným obrázkom</h1>
+        <p>Posúvaj stránku, aby si videl efekt.</p>
+    </div>
+
+    
+
+    <script>
+        // Jednoduchý JavaScript pre parallax efekt
+        window.addEventListener('scroll', () => {
+            const parallaxImage = document.querySelector('.parallax-image');
+            const offset = window.pageYOffset;
+            parallaxImage.style.transform = `translate(-50%, ${offset * .5}px)`;
+        });
+    </script>
+</body>
+</html>

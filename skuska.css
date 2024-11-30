@@ -1,0 +1,627 @@
+/* Resetovanie štýlov */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px; /* Základná veľkosť písma (1rem = 16px) */
+}
+a{
+    text-decoration: none;
+}
+body {
+    align-items: center;
+    background-color: #000;
+    overflow-x: hidden;
+}
+
+/* Štýly pre hamburger menu */
+.hamburger {
+    
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    z-index: 100;
+}
+.hamburger div {
+    background-color: white;
+    height: 3px;
+    width: 100%;
+    transition: all 0.3s ease;
+  
+}
+.hamburger .line {
+    width: 30px;
+    height: 3px;
+    background: #fff;
+    transition: all 0.3s ease;
+    
+}
+
+.menu {
+    position: fixed;
+    top: 0;
+    right: -100%; /* Skryté mimo obrazovky */
+    background: url("BG imgs/hmbrger_menu_bg.jpg");
+    color: #fff;
+    width: 200px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: right 0.3s ease;
+    z-index: 99;
+    
+}
+
+.menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+.menu ul li {
+    padding: 2rem;
+    margin: 1rem;
+}
+
+.menu ul li a {
+    gap: 2rem;
+    font-size: 1.5em;
+    line-height: .5em;
+    color: #f6f7ff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    
+}
+
+.menu ul li a:hover {
+    color: rgb(143, 0, 131);
+}
+
+/* Aktívne menu */
+.menu.open {
+    right: 0; /* Posun na obrazovku */
+}
+
+/* Animácia hamburger ikonky */
+.hamburger.open .line:nth-child(1) {
+    z-index: 1111;
+    transform: rotate(45deg) translateY(8px);
+}
+
+.hamburger.open .line:nth-child(2) {
+    z-index: 1111;
+    transform: rotate(0deg) translatex(-9.5rem);
+}
+
+.hamburger.open .line:nth-child(3) {
+    z-index: 1111;
+    transform: rotate(-45deg) translateY(-8px);
+}
+
+/* Desktop štýly */
+@media screen and (min-width: 768px) {
+    .hamburger {
+        display: none; /* Skryté na desktopoch */
+    }
+
+    .menu {
+        position: static;
+        right: 0;
+        background: none;
+        flex-direction: row;
+        height: auto;
+        width: auto;
+        justify-content: flex-end;
+        transition: none;
+    }
+
+    .menu ul {
+        display: flex;
+        gap: 2rem;
+    }
+
+    .menu ul li {
+        margin: 0;
+    }
+
+    .menu ul li a {
+        font-size: 1rem;
+        color: #fff;
+    }
+}
+
+
+
+
+/* Hlavička stránky */
+.header {
+    font-family: 'ICA Rubrik';
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;/* Zarovná obsah na vrch */
+    align-items: center;
+    width: 100%;
+    height: 0vh;
+    position: relative;
+    z-index: 100;
+    padding-top: 2rem; /* Mierne odsadenie z vrchu stránky */
+}
+
+/* Nadpis */
+.header h2 {
+    color: #fff;
+    text-shadow: 0 10px 20px #000;
+    font-size: 2rem;
+    text-align: center;
+    margin: 0;
+    z-index: 101;
+}
+
+
+
+/* Statické pozadie */
+.static-background {
+    position: absolute;
+    top: 0px;
+    left: 0rem;
+    width: 100%;
+    height: 300vh;
+    background: url('BG imgs/hmbrger_menu_bg.jpg') no-repeat center center;
+    background-size:cover;
+    z-index: -1;
+    background-image:
+        linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.8) 10%, rgba(0, 0, 0, 0.2) 20%, rgba(0, 0, 0, 0.5) 80%, rgba(0, 0, 0, 1) 100%),
+        url('BG imgs/Asset 6bg_tripi2.png');
+
+}
+
+/* Sekcia s rotujúcimi obrázkami */
+.rotate-section {
+    position: relative;
+    width: 100%;
+    height: 300vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/* Obrázky s veľkosťou v rem jednotkách */
+.midground {
+    width: 13rem;
+    height: 15rem;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    transition: opacity 0.5s ease-in-out;
+}
+.foreground {
+    width: 9rem;
+    height: 10rem;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+    transition: opacity 0.5s ease-in-out;
+}
+.hidden {
+    opacity: 0;
+    pointer-events: none; /* Zabraňuje interakcii s obrázkami, keď sú skryté */
+    transition: opacity .5s ease-in;
+}
+
+
+/* linky v sidebaroch */
+.sidebar {
+    position: fixed;
+    top: 20%;
+    right: -33rem;
+    width: 20rem;
+    height: 1rem;
+    background: url('BG imgs/sidebar-01.png') no-repeat center center;
+    background-size: cover;
+    
+    transition: right 0.5s ease-in-out;
+    z-index: 10;
+}
+.sidebar-content {
+    display: flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap: 1rem;
+}
+.sidebar.visible {
+    right: 0%;
+    
+}
+.icon {
+    position: absolute; /* Zabezpečuje voľné umiestnenie na stránke */
+    top: -111px;
+    z-index: 20;
+    left: 25%; /* Horizontálne zarovnanie - voliteľné */
+    
+    width: 3rem;
+    height: 3rem;
+    margin: 50px;
+    cursor: pointer;
+    background-size: cover;
+    opacity: 0; /* Začína ako neviditeľná */
+    transform: scale(0);
+    transition: all .5s ease-out; /* Hladká animácia */
+
+}
+.icon.animate {
+    opacity: 1; /* Zviditeľní sa */
+    transform: scale(1); /* Zvýši veľkosť na 100% */
+}
+
+/* Štýly pre druhý sidebar */
+.sidebar-2 {
+    top:50%; /* Umiestnený nižšie ako prvý sidebar */
+    right: -30rem;
+    background: url('BG imgs/sidebar-01.png') no-repeat center center;
+    background-size: cover;
+}
+/* Viditeľný stav pre druhý sidebar */
+.sidebar-2.visible {
+    right: 0%;
+}
+/* Štýly pre treti sidebar */
+.sidebar-3 {
+    top:80%; /* Umiestnený nižšie ako prvý sidebar */
+    right: -30rem;
+    background: url('BG imgs/sidebar-01.png') no-repeat center center;
+    background-size: cover;
+}
+/* Viditeľný stav pre druhý sidebar */
+.sidebar-3.visible {
+    right: 0%;
+}
+
+/* Štýly pre oba ľavé sidebary */
+.sidebar-left-1,
+.sidebar-left-2 {
+    position: fixed;
+    width: 20rem;
+    height: 1rem;
+    
+    transition: left 0.5s ease-in-out;
+    z-index: 10;
+}
+/* Prvý ľavý sidebar */
+.sidebar-left-1 {
+    top: 35%; /* Umiestnenie na 30% od vrchu obrazovky */
+    left: -33rem; /* Skrytý mimo obrazovky z ľavej strany */
+    background: url('BG imgs/sidebar-01.png') no-repeat center center;
+    background-size: cover;
+    
+    z-index: 10;
+}
+
+/* Druhý ľavý sidebar */
+.sidebar-left-2 {
+    top: 65%; /* Umiestnený nižšie na 50% od vrchu obrazovky */
+    left: -33rem; /* Skrytý mimo obrazovky z ľavej strany */
+    background: url('BG imgs/sidebar-01.png') no-repeat center center;
+    background-size: cover;
+    z-index: 10; /* Vyšší z-index pre prekrytie */
+}
+
+/* Viditeľné stavy pre oba ľavé sidebary */
+.sidebar-left-1.visible {
+    left: 0; /* Vysunie sa na obrazovku */
+}
+
+.sidebar-left-2.visible {
+    left: 0; /* Vysunie sa na obrazovku */
+}
+
+/* Použitie filter efektu */
+.sidebar,
+.sidebar-2,
+.sidebar-3,
+.sidebar-left-1,
+.sidebar-left-2 {
+    filter: drop-shadow(0 0 12px rgba(150, 0, 255, 0.7)) drop-shadow(0 0 10px rgba(200, 0, 255, 0.5));
+}
+
+
+
+
+/* Sekcia Hero Section */
+.hero-section {
+    position: relative;
+    top: 0;
+    width: 100%;
+    height: 150vh;
+    margin: 0;
+    padding: 0;
+    background-image:
+        linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 1) 100%),
+        url('BG imgs/Asset 7bg_tripi.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Točiaca sa galéria */
+.banner {
+    width: 100%;
+    height: 100vh;
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+}
+
+.banner .slider {
+    position: relative;
+    width: 10rem;
+    height: 15rem;
+    top: 10rem;
+    left: calc(50% - 100px);
+    transform-style: preserve-3d;
+    transform: perspective(1000px);
+    animation: autoRun 20s linear infinite;
+    z-index: 2;
+}
+
+/* Animácia rotácie */
+@keyframes autoRun {
+    from {
+        transform: perspective(1000px) rotateX(-20deg) rotateY(0deg);
+    }
+    to {
+        transform: perspective(1000px) rotateX(-20deg) rotateY(360deg);
+    }
+}
+
+/* Fotky v rotujúcej galérii */
+.banner .slider .item {
+    position: absolute;
+    inset: 0;
+    transform: rotateY(calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg))
+        translateZ(25rem);
+}
+
+.banner .slider .item img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* Obsah pri rotujúcej galérii */
+.banner .content {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(1400px, 100vw);
+    height: max-content;
+    padding-bottom: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1;
+}
+
+.banner .content h2 {
+    font-size: 3em;
+    line-height: 1em;
+    color: #454a69;
+}
+
+.banner .content .author {
+    margin: -75rem 0 0 0;
+    padding-left: 2rem;
+    font-family: 'ICA Rubrik';
+    color: #fff;
+    text-shadow: 0 10px 20px #000;
+}
+
+.banner .content .model {
+    background-image: url("BG imgs/Asset.png");
+    width: 100%;
+    height: 25rem;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    
+    z-index: 1;
+}
+
+
+/* Točiace sa obrázky - Mobilné zobrazenie */
+@media screen and (max-width: 767px) {
+    .banner .slider {
+        width: 111px;
+        height: 270px;
+        left: calc(50% - 50px);
+    }
+    .banner .slider .item {
+        transform: rotateY(calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg))
+            translateZ(222px);
+    }
+    .banner .content h2 {
+        font-size: 2em;
+    }
+}
+
+
+/* Modal Overlay */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6); /* Priehľadné čierne pozadie */
+    z-index: 999;
+    display: none;
+}
+
+/* Modal okno */
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    max-width: 400px;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.7);
+    text-align: center;
+    color: #fff;
+    z-index: 1000;
+    display: none;
+}
+
+/* Obsah modalu */
+.modal-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Obrázok v modale */
+.modal img {
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+    margin-bottom: 15px;
+}
+
+/* Nadpis a odkaz v modale */
+.modal h3 {
+    font-size: 1.5rem;
+    margin: 10px 0;
+}
+
+#modalLink {
+    color: #bb86fc;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+
+
+.video-container {
+    
+    width: 100%; 
+    margin: 20px auto; /* Vycentrované horizontálne */
+    position: relative; /* Na zarovnanie tlačidla vedľa */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 14px;
+    overflow: hidden;
+    
+    
+    /* Čierne pozadie pre videá */
+}
+
+video {
+    width: 70%;
+    border-radius: 14px;
+    height: auto;
+    background: #030303;
+    margin: 1rem;
+    box-shadow: 0 1px 8px rgba(255, 255, 255, 0.7);
+    filter: drop-shadow(0 0 3px rgba(150, 0, 255, 0.7)) drop-shadow(0 0 10px rgba(200, 0, 255, 0.5));
+    object-fit: fill; /* Video sa roztiahne, aby vyplnilo kontajner bez deformácie */
+}
+.button-wrapper {
+   
+    filter: drop-shadow(0 0 3px rgba(150, 0, 255, 0.7)) drop-shadow(0 0 10px rgba(200, 0, 255, 0.5));
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 1rem; /* Odsadenie tlačidla od videa */
+}
+.button-text {
+    font-family: 'ICA Rubrik';
+    font-size: 1rem;
+    color: white;
+    margin-bottom: 1rem; /* Odsadenie textu od obrázka */
+    text-align: center;
+}
+
+/* Štýly pre tlačidlo */
+.rotate-btn {
+    
+    
+    margin: 1rem;
+    width: 50px; /* Šírka tlačidla (obrázku) */
+    height: auto; /* Automatická výška */
+    margin-top: 1rem;
+    cursor: pointer;
+    transition: transform 0.5s ease; /* Jemný prechod na rotáciu */
+}
+
+/* Efekt rotácie */
+.rotate-btn.rotated {
+    
+    filter: drop-shadow(0 0 2rem rgba(150, 0, 255, 0.7)) drop-shadow(0 0 10px rgba(200, 0, 255, 0.5));
+    border-radius: 5rem;
+    transform: rotate(360deg); /* Plná rotácia */
+}
+
+
+.form{
+    display: flex;
+    justify-content: center; /* Horizontálne centrovanie */
+    align-items: center;
+}
+
+.podstranka {
+    margin: 3rem;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #2a2a2a;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+}
+
+
+
+
+.content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+}
+
+
+
+
+
+footer {
+
+    background-color: #111;
+    color: #fff;
+    text-align: center;
+    padding: .5rem;
+    margin:0rem;
+}
